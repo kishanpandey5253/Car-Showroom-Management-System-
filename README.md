@@ -1,82 +1,200 @@
-🌐 Online Library Management System (Web Application) A Java Web Application for managing library operations using Servlets, JSP, JDBC, and MySQL. The system supports Admin and User (Student) roles and runs on Apache Tomcat.
+# 🚗 Car Showroom Management System
 
-🚀 Features 👨‍💼 Admin Module Admin login
+A **Java-based Car Showroom Management System** designed to manage showroom operations such as adding cars, viewing available cars, managing car availability, and handling customer-related operations.
 
-Add new books
+The system provides separate **Admin and User (Customer)** roles and is designed using Java, JDBC, MySQL, and a web-based interface.
 
-View all books
+## 🚀 Features
 
-Manage book availability
+### 👨‍💼 Admin Module
 
-Logout
+* Admin login
+* Add new cars
+* View all cars
+* Manage car availability
+* Update car details
+* Delete cars
+* Manage showroom inventory
+* Logout
 
-👨‍🎓 User (Student) Module User login
+### 👤 User (Customer) Module
 
-View available books
+* User login
+* View available cars
+* View car details
+* Search for cars
+* Check car availability
+* Book/Enquire about available cars
+* Logout
 
-Issue books (logic-based)
+## 🛠️ Technologies Used
 
-Logout
+* **Java**
+* **Servlet & JSP**
+* **JDBC**
+* **MySQL**
+* **Apache Tomcat**
+* **HTML / CSS**
+* **IntelliJ IDEA / VS Code**
+* **MySQL Workbench**
 
-🛠️ Technologies Used Java (JDK 23)
+## 🗄️ Database Design
 
-Servlet & JSP
+### Database Name
 
-JDBC
+```sql
+car_showroom
+```
 
-MySQL
+### Cars Table
 
-Apache Tomcat 9
+```sql
+CREATE TABLE cars (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    brand VARCHAR(100),
+    model VARCHAR(100),
+    price DECIMAL(12,2),
+    fuel_type VARCHAR(50),
+    transmission VARCHAR(50),
+    year INT,
+    available TINYINT(1)
+);
+```
 
-HTML / CSS
+### Users Table
 
-IntelliJ IDEA / VS Code
+```sql
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(100),
+    role VARCHAR(20)
+);
+```
 
-MySQL Workbench
+## 🔄 Application Workflow
 
-🗄️ Database Design Database Name sql Copy code olms Books Table sql Copy code CREATE TABLE books ( id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(150), author VARCHAR(100), available TINYINT(1) ); Users Table sql Copy code CREATE TABLE users ( id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(50), password VARCHAR(50), role VARCHAR(20) ); 🔄 Application Workflow User logs in as Admin or Student
+1. User logs in as **Admin** or **Customer**.
+2. The system performs **role-based redirection**.
+3. Admin can manage cars and showroom inventory.
+4. Customers can view available cars and their details.
+5. Customers can check availability or submit a booking/enquiry.
+6. Logout terminates the active session.
 
-Role-based redirection is performed
+## 🔌 Database Configuration
 
-Admin manages books and availability
+Update the database credentials in `DBConnection.java`:
 
-Users can view and issue available books
+```java
+String url = "jdbc:mysql://localhost:3306/car_showroom";
+String user = "root";
+String password = "your_mysql_password";
+```
 
-Logout ends the session
+Make sure the **MySQL Connector/J** driver is added to the project.
 
-🔌 Database Configuration Update database credentials in DBConnection.java:
+## ▶️ How to Run the Application
 
-java Copy code String url = "jdbc:mysql://localhost:3306/olms"; String user = "root"; String password = "your_mysql_password"; ▶️ How to Run the Application Install MySQL and Apache Tomcat 9
+### 1. Install Required Software
 
-Create database olms
+Install:
 
-Create required tables
+* Java JDK
+* MySQL
+* Apache Tomcat
+* MySQL Workbench
+* IntelliJ IDEA or VS Code
 
-Add MySQL Connector/J to the project
+### 2. Create the Database
 
-Configure Tomcat Server in your IDE
+Open MySQL Workbench and create the database:
 
-Deploy the project on Tomcat
+```sql
+CREATE DATABASE car_showroom;
+```
 
-Open browser and visit:
+### 3. Create Required Tables
 
-arduino Copy code http://localhost:8080/OLMS/ 🧠 Core Concepts Used MVC Architecture
+Execute the provided SQL commands for the `cars` and `users` tables.
 
-DAO Pattern
+### 4. Configure Database
 
-Servlet Lifecycle
+Update the MySQL username and password in `DBConnection.java`.
 
-JSP for View Layer
+### 5. Add MySQL Connector/J
 
-JDBC with PreparedStatement
+Add the MySQL JDBC driver to the project libraries.
 
-🔮 Future Enhancements Password encryption
+### 6. Configure Apache Tomcat
 
-Role-based access control
+Configure **Apache Tomcat** in your IDE and deploy the project.
 
-Book return & fine calculation
+### 7. Run the Application
 
-Pagination and search
+Open your browser and visit:
+
+```text
+http://localhost:8080/CarShowroom/
+```
+
+## 🧠 Core Concepts Used
+
+* **MVC Architecture**
+* **DAO Pattern**
+* **Servlet Lifecycle**
+* **JSP for View Layer**
+* **JDBC**
+* **PreparedStatement**
+* **Session Management**
+* **Role-Based Authentication**
+* **CRUD Operations**
+
+## 📁 Main Modules
+
+```text
+Car Showroom Management System
+│
+├── Admin
+│   ├── Login
+│   ├── Add Car
+│   ├── View Cars
+│   ├── Update Car
+│   ├── Delete Car
+│   └── Manage Availability
+│
+├── Customer
+│   ├── Login
+│   ├── View Cars
+│   ├── Search Cars
+│   ├── Check Availability
+│   └── Booking / Enquiry
+│
+├── Database
+│   ├── Cars
+│   └── Users
+│
+└── Authentication
+    ├── Admin
+    └── Customer
+```
+
+## 🔮 Future Enhancements
+
+* Password encryption using BCrypt
+* Advanced role-based access control
+* Car booking and cancellation
+* Test-drive scheduling
+* Customer management
+* Sales and billing module
+* EMI and finance calculation
+* Advanced car search and filtering
+* Pagination
+* Car image upload
+* Online payment integration
+* Email/SMS notifications
+* REST API integration
+* Sales reports and analytics
+
 
 REST API integration
 👤 Author Kishan Pandey
