@@ -5,7 +5,7 @@ class Solution {
 
         for (char c:s.toCharArray()){
             int ascii = (int) c;
-
+            //Building binary string
             String bits = Integer.toBinaryString(ascii);
 
             while(bits.length() < 8){
