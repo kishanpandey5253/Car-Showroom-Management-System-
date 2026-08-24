@@ -14,7 +14,7 @@ class Solution {
 
              binary.append(bits);
         }
-
+        //adding pointers
         int left = 0;
         int right = binary.length()-1;
 
