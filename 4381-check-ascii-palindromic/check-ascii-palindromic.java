@@ -14,20 +14,13 @@ class Solution {
 
              binary.append(bits);
         }
-        //adding pointers
-        int left = 0;
-        int right = binary.length()-1;
+        //for reversing 
 
+        String original = binary.toString();
+        String reversed = binary.reverse().toString();
 
-        while (left<right) {
-            if(binary.charAt(left)!=binary.charAt(right)){
-                return false;
-            }
-            left++;
-            right--;
-        }
+        //for compairing
+        return original.equals(reversed);
 
-        //FOR FINAL ANSWER
-        return true;
     }
 }
